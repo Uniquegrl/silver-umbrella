@@ -1,0 +1,4 @@
+[rpc_endpoints]
+buildbear = "https://rpc.buildbear.io/medical-gamora-dab4d819"
+[etherscan]
+buildbear = { key = "verifyContract", url="https://rpc.buildbear.io/verify/etherscan/medical-gamora-dab4d819" }

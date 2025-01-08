@@ -19,8 +19,13 @@
     "@nomiclabs/hardhat-ethers": "^2.2.2",
     "@openzeppelin/hardhat-upgrades": "^1.28.0",
     "ethers": "^5.7.0"
-  },
-  "scripts": {
+  
+  "scripts": {run-script script_name flags='' sig='' args='':
+  sh -c 'FOUNDRY_PROFILE=ci forge script script/{{script_name}}.s.sol {{sig}} {{args}}     --rpc-url "https://rpc.buildbear.io/medical-gamora-dab4d819"     --private-key "<PRIVATE_KEY_OF_UNLOCKED_ACCOUNT>"     --etherscan-api-key "verifyContract"     --verifier-url "https://rpc.buildbear.io/verify/etherscan/medical-gamora-dab4d819"     -vvvv {{flags}}' 
+
+deploy-verify:
+  sh -c 'just run-script <SCRIPT_NAME> "--broadcast --verify --slow"'
+
     "createTestnet": "node forking.mjs"
   }
 }
